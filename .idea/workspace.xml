@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="da6b3dc7-63d5-4d47-9c3a-5c9746f1e141" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/edu/miu/commentservice/CommentServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/test/java/edu/miu/commentservice/CommentServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movie-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movie-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movie-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movie-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movie-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movieservice/MovieServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movie-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movie-service/src/test/java/com/example/movieservice/MovieServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tv-series-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tv-series-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tv-series-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tv-series-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tv-series-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tv-series-service/src/main/java/edu/miu/tvseriesservice/TvSeriesServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tv-series-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tv-series-service/src/test/java/edu/miu/tvseriesservice/TvSeriesServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/edu/miu/userservice/UserServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/test/java/edu/miu/userservice/UserServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rating-service/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/HELP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rating-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rating-service/src/main/java/edu/miu/ratingservice/RatingServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/src/main/java/edu/miu/ratingservice/RatingServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rating-service/src/test/java/edu/miu/ratingservice/RatingServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/src/test/java/edu/miu/ratingservice/RatingServiceApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/rating-service" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Hp3R5V9qFd1Je7pOtPfxSHCy6A" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17"
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.CommentServiceApplication">
+    <configuration name="CommentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="comment-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.commentservice.CommentServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MovieServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="movie-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.movieservice.MovieServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MovieServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="movie-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.movieservice.MovieServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RatingServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="rating-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.ratingservice.RatingServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TvSeriesServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="tv-series-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.tvseriesservice.TvSeriesServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.userservice.UserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.MovieServiceApplication (1)" />
+      <item itemvalue="Spring Boot.CommentServiceApplication" />
+      <item itemvalue="Spring Boot.MovieServiceApplication" />
+      <item itemvalue="Spring Boot.RatingServiceApplication" />
+      <item itemvalue="Spring Boot.TvSeriesServiceApplication" />
+      <item itemvalue="Spring Boot.UserServiceApplication" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="da6b3dc7-63d5-4d47-9c3a-5c9746f1e141" name="Changes" comment="" />
+      <created>1668968188959</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668968188959</updated>
+      <workItem from="1668968190262" duration="1714000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
