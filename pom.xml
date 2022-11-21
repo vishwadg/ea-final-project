@@ -15,6 +15,7 @@
         <module>movie-service</module>
         <module>tv-series-service</module>
         <module>rating-service</module>
+        <module>api-gateway</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

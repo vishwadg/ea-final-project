@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/movie-service/pom.xml" />
         <option value="$PROJECT_DIR$/tv-series-service/pom.xml" />
         <option value="$PROJECT_DIR$/rating-service/pom.xml" />
+        <option value="$PROJECT_DIR$/api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/pom.xml" />
       </list>
     </option>
   </component>
