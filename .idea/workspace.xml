@@ -5,66 +5,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da6b3dc7-63d5-4d47-9c3a-5c9746f1e141" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comment-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comment-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comment-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comment-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comment-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/edu/miu/commentservice/CommentServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comment-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comment-service/src/test/java/edu/miu/commentservice/CommentServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movieservice/MovieServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie-service/src/test/java/com/example/movieservice/MovieServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tv-series-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tv-series-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tv-series-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tv-series-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tv-series-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tv-series-service/src/main/java/edu/miu/tvseriesservice/TvSeriesServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tv-series-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tv-series-service/src/test/java/edu/miu/tvseriesservice/TvSeriesServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/edu/miu/userservice/UserServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/test/java/edu/miu/userservice/UserServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rating-service/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/HELP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rating-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rating-service/src/main/java/edu/miu/ratingservice/RatingServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/src/main/java/edu/miu/ratingservice/RatingServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rating-service/src/test/java/edu/miu/ratingservice/RatingServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/src/test/java/edu/miu/ratingservice/RatingServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/43e5f1f9-d0e4-48c0-972f-c92460f6bfc1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/43e5f1f9-d0e4-48c0-972f-c92460f6bfc1/storage_v2/_src_/database/movie-service-db.U0Wyvw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/43e5f1f9-d0e4-48c0-972f-c92460f6bfc1/storage_v2/_src_/database/movie-service-db.U0Wyvw/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/43e5f1f9-d0e4-48c0-972f-c92460f6bfc1/storage_v2/_src_/database/movie-service-db.U0Wyvw/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/43e5f1f9-d0e4-48c0-972f-c92460f6bfc1/storage_v2/_src_/database/movie-service-db.U0Wyvw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/43e5f1f9-d0e4-48c0-972f-c92460f6bfc1/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/43e5f1f9-d0e4-48c0-972f-c92460f6bfc1/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/43e5f1f9-d0e4-48c0-972f-c92460f6bfc1/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/43e5f1f9-d0e4-48c0-972f-c92460f6bfc1/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/controllers/MovieController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/entities/DTOs/CommentDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/entities/DTOs/MediaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/entities/DTOs/RatingDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/entities/Media.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/entities/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/entities/TvSeries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/repositories/MediaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/services/MediaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/services/impl/MediaServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/services/specification/MediaSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/resources/backup-application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media-service/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/media-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/media-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/media-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/media-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/media-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movieservice/MovieServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/media-service/src/main/java/edu/miu/movieservice/MediaServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/src/test/java/com/example/movieservice/MovieServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/media-service/src/test/java/edu/miu/movieservice/MovieServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/rating-service" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -80,14 +86,25 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17"
+    "jdk.selected.JAVA_MODULE": "17",
+    "nodejs_package_manager_path": "npm"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "postgresql"
+    ]
   }
 }]]></component>
-  <component name="RunManager" selected="Spring Boot.CommentServiceApplication">
+  <component name="RunManager" selected="Spring Boot.MediaServiceApplication">
     <configuration name="CommentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <module name="comment-service" />
@@ -96,21 +113,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="movie-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.movieservice.MovieServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MovieServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="movie-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.movieservice.MovieServiceApplication" />
+    <configuration name="MediaServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="media-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.movieservice.MediaServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.miu.movieservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="RatingServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
       <module name="rating-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.ratingservice.RatingServiceApplication" />
       <method v="2">
@@ -132,13 +149,17 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.MovieServiceApplication (1)" />
       <item itemvalue="Spring Boot.CommentServiceApplication" />
-      <item itemvalue="Spring Boot.MovieServiceApplication" />
       <item itemvalue="Spring Boot.RatingServiceApplication" />
       <item itemvalue="Spring Boot.TvSeriesServiceApplication" />
       <item itemvalue="Spring Boot.UserServiceApplication" />
+      <item itemvalue="Spring Boot.MediaServiceApplication" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.MediaServiceApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -148,7 +169,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668968188959</updated>
-      <workItem from="1668968190262" duration="1714000" />
+      <workItem from="1668968190262" duration="47320000" />
     </task>
     <servers />
   </component>

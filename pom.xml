@@ -12,8 +12,7 @@
     <modules>
         <module>user-service</module>
         <module>comment-service</module>
-        <module>movie-service</module>
-        <module>tv-series-service</module>
+        <module>media-service</module>
         <module>rating-service</module>
     </modules>
     <properties>
