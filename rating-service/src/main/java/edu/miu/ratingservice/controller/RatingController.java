@@ -25,16 +25,16 @@ public class RatingController {
         return ResponseEntity.ok(ratingService.getAllRatings());
     }
 
-    @GetMapping("/filter-by-user")
-    public ResponseEntity<List<RatingDto>> getAllRatingsByUser(@RequestParam Long userId) {
+    @GetMapping("/filter-by-user/{userId}")
+    public ResponseEntity<List<RatingDto>> getAllRatingsByUser(@PathVariable Long userId) {
         if (userId == 0) return sendBadRequest("UserId" + cannotBeZero);
         var item = ratingService.getAllRatingsByUser(userId);
         if (item == null) return sendBadRequest(ratingNotFound);
         else return ResponseEntity.ok(item);
     }
 
-    @GetMapping("/filter-by-media")
-    public ResponseEntity<List<RatingDto>> getAllRatingsByMedia(@RequestParam Long mediaId) {
+    @GetMapping("/filter-by-media/{mediaId}")
+    public ResponseEntity<List<RatingDto>> getAllRatingsByMedia(@PathVariable Long mediaId) {
         if (mediaId == 0) return sendBadRequest("Media Id" + cannotBeZero);
         var item = ratingService.getAllRatingsByMedia(mediaId);
         if (item == null) return sendBadRequest(ratingNotFound);
