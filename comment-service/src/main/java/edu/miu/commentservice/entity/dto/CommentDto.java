@@ -10,5 +10,6 @@ public class CommentDto {
     private Long id;
     private String comment;
     private Long mediaId;
+    private Long userId;
     private Date createdAt;
 }
