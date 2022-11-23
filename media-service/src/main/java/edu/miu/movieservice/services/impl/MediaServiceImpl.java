@@ -1,11 +1,15 @@
 package edu.miu.movieservice.services.impl;
 
+import edu.miu.movieservice.entities.DTOs.CommentDTO;
 import edu.miu.movieservice.entities.DTOs.MediaDTO;
+import edu.miu.movieservice.entities.DTOs.RatingDTO;
 import edu.miu.movieservice.entities.Media;
 import edu.miu.movieservice.entities.Movie;
 import edu.miu.movieservice.entities.TvSeries;
 import edu.miu.movieservice.repositories.MediaRepository;
+import edu.miu.movieservice.services.CommentFeignClient;
 import edu.miu.movieservice.services.MediaService;
+import edu.miu.movieservice.services.RatingFeignClient;
 import edu.miu.movieservice.services.specification.MediaSpecification;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +29,12 @@ public class MediaServiceImpl implements MediaService {
 
     @Autowired
     ModelMapper modelMapper;
+
+    @Autowired
+    CommentFeignClient commentFeignClient;
+
+    @Autowired
+    RatingFeignClient ratingFeignClient;
 
     @Override
     public MediaDTO create(MediaDTO mediaDTO) {
@@ -119,11 +129,16 @@ public class MediaServiceImpl implements MediaService {
 
         // TODO: Pull comment and rating of the product
         // TODO: and set comment list, rating list and average rating to MediaDTO by calling comment service and rating service
-//        List<CommentDTO> commentDTOList = null;
-//        List<RatingDTO> ratingDTOList = null;
+        List<CommentDTO> commentDTOList = commentFeignClient.getCommentsByMediaId(id);
+        List<RatingDTO> ratingDTOList = ratingFeignClient.getRatingsByMediaId(id);
 //        double avgRating = 0.0;
-//        mediaDTO.setCommentList(commentDTOList);
-//        mediaDTO.setRatingList(ratingDTOList);
+        if (!commentDTOList.isEmpty()) {
+            mediaDTO.setCommentList(commentDTOList);
+        }
+
+        if (!ratingDTOList.isEmpty()) {
+            mediaDTO.setRatingList(ratingDTOList);
+        }
 //        mediaDTO.setAvgRating(avgRating);
 
         return mediaDTO;
