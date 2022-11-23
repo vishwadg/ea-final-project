@@ -7,7 +7,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>service-discovery</artifactId>
-    <name>Archetype - service-discovery</name>
+    <name>service-discovery</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>

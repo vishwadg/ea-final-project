@@ -11,8 +11,8 @@
     <groupId>edu.miu</groupId>
     <artifactId>media-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>movie-service</name>
-    <description>movie-service</description>
+    <name>media-service</name>
+    <description>media-service</description>
     <properties>
         <java.version>17</java.version>
     </properties>
