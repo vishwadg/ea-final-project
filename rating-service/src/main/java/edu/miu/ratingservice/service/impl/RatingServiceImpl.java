@@ -47,7 +47,6 @@ public class RatingServiceImpl implements RatingService {
     public boolean upsertRating(Rating rating) {
         try
         {
-            rating.setDate(LocalDate.now());
             ratingRepo.save(rating);
             return  true;
         }

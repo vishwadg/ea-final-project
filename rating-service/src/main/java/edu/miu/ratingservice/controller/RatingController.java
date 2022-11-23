@@ -1,17 +1,16 @@
-package edu.miu.ratingservice.Controller;
+package edu.miu.ratingservice.controller;
 
 import edu.miu.ratingservice.entity.Rating;
 import edu.miu.ratingservice.service.RatingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/media-ratings")
+@RequestMapping("/ratings")
 
 public class RatingController {
     public final RatingService ratingService;
@@ -24,7 +23,7 @@ public class RatingController {
         return ResponseEntity.ok(ratingService.getAllRatings());
     }
 
-    @GetMapping("filter-by-user")
+    @GetMapping("/filter-by-user")
     public ResponseEntity getAllRatingsByUser(@RequestParam Long userId) {
         if (userId == 0) return sendBadRequest("UserId" + cannotBeZero);
         var item = ratingService.getAllRatingsByUser(userId);
@@ -32,7 +31,7 @@ public class RatingController {
         else return ResponseEntity.ok(item);
     }
 
-    @GetMapping("filter-by-media")
+    @GetMapping("/filter-by-media")
     public ResponseEntity<List<Rating>> getAllRatingsByMedia(@RequestParam Long mediaId) {
         if (mediaId == 0) return sendBadRequest("Media Id" + cannotBeZero);
         var item = ratingService.getAllRatingsByMedia(mediaId);
