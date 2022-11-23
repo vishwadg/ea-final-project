@@ -1,9 +1,12 @@
 package edu.miu.ratingservice.service.impl;
 
 import edu.miu.ratingservice.entity.Rating;
+import edu.miu.ratingservice.entity.dto.AvgRatingDto;
+import edu.miu.ratingservice.entity.dto.RatingDto;
 import edu.miu.ratingservice.repository.RatingRepo;
 import edu.miu.ratingservice.service.RatingService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
@@ -16,38 +19,46 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RatingServiceImpl implements RatingService {
 
+
+
     public final RatingRepo ratingRepo;
+    public final ModelMapper modelMapper;
 
     @Override
-    public List<Rating> getAllRatings() {
-        return ratingRepo.findAll();
+    public List<RatingDto> getAllRatings() {
+        var item = ratingRepo.findAll();
+       return item.stream().map(rating -> modelMapper.map(rating, RatingDto.class)).toList();
     }
 
     @Override
-    public List<Rating> getAllRatingsByUser(Long userId) {
-        return  ratingRepo.getRatingByUserId(userId);
+    public List<RatingDto> getAllRatingsByUser(Long userId) {
+        var item =  ratingRepo.getRatingByUserId(userId);
+        return item.stream().map(rating -> modelMapper.map(rating,RatingDto.class)).toList();
     }
 
     @Override
-    public List<Rating> getAllRatingsByMedia(Long mediaId) {
-        return ratingRepo.getRatingsByMediaId(mediaId);
+    public List<RatingDto> getAllRatingsByMedia(Long mediaId) {
+        var item = ratingRepo.getRatingsByMediaId(mediaId);
+        return item.stream().map(rating -> modelMapper.map(rating,RatingDto.class)).toList();
     }
 
     @Override
-    public Rating getRatingById(Long ratingId) {
-        return ratingRepo.findById(ratingId).get();
+    public RatingDto getRatingById(Long ratingId) {
+        var rating =  ratingRepo.findById(ratingId).get();
+        return modelMapper.map(rating,RatingDto.class);
     }
 
     @Override
-    public Double getAverageRatingOfMedia(Long mediaId) {
-        return ratingRepo.getAverageRatingOfMedia(mediaId);
+    public AvgRatingDto getAverageRatingOfMedia(Long mediaId) {
+         var averageRating = ratingRepo.getAverageRatingOfMedia(mediaId);
+         return new AvgRatingDto(mediaId,averageRating);
     }
 
     @Override
-    public boolean upsertRating(Rating rating) {
+    public boolean upsertRating(RatingDto rating) {
         try
         {
-            ratingRepo.save(rating);
+            ratingRepo.save(modelMapper.map(rating,Rating.class));
             return  true;
         }
         catch (Exception e)

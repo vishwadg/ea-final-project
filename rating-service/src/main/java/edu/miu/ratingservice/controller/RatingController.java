@@ -1,6 +1,8 @@
 package edu.miu.ratingservice.controller;
 
 import edu.miu.ratingservice.entity.Rating;
+import edu.miu.ratingservice.entity.dto.AvgRatingDto;
+import edu.miu.ratingservice.entity.dto.RatingDto;
 import edu.miu.ratingservice.service.RatingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,12 +21,12 @@ public class RatingController {
     public static final String cannotBeZero = "cannot be zero";
 
     @GetMapping()
-    public ResponseEntity<List<Rating>> GetAllRatings() {
+    public ResponseEntity<List<RatingDto>> GetAllRatings() {
         return ResponseEntity.ok(ratingService.getAllRatings());
     }
 
     @GetMapping("/filter-by-user")
-    public ResponseEntity getAllRatingsByUser(@RequestParam Long userId) {
+    public ResponseEntity<List<RatingDto>> getAllRatingsByUser(@RequestParam Long userId) {
         if (userId == 0) return sendBadRequest("UserId" + cannotBeZero);
         var item = ratingService.getAllRatingsByUser(userId);
         if (item == null) return sendBadRequest(ratingNotFound);
@@ -32,7 +34,7 @@ public class RatingController {
     }
 
     @GetMapping("/filter-by-media")
-    public ResponseEntity<List<Rating>> getAllRatingsByMedia(@RequestParam Long mediaId) {
+    public ResponseEntity<List<RatingDto>> getAllRatingsByMedia(@RequestParam Long mediaId) {
         if (mediaId == 0) return sendBadRequest("Media Id" + cannotBeZero);
         var item = ratingService.getAllRatingsByMedia(mediaId);
         if (item == null) return sendBadRequest(ratingNotFound);
@@ -40,7 +42,7 @@ public class RatingController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Rating> getRatingById(@PathVariable Long id) {
+    public ResponseEntity<RatingDto> getRatingById(@PathVariable Long id) {
         if (id == 0) return sendBadRequest("Rating Id" + cannotBeZero);
         var item = ratingService.getRatingById(id);
         if (item == null) return sendBadRequest(ratingNotFound);
@@ -48,7 +50,7 @@ public class RatingController {
     }
 
     @GetMapping("/average-rating/{mediaId}/media")
-    public ResponseEntity<Double> getAverageRatingOfMedia(@PathVariable Long mediaId) {
+    public ResponseEntity<AvgRatingDto> getAverageRatingOfMedia(@PathVariable Long mediaId) {
         if (mediaId == 0) return sendBadRequest("Media Id " + cannotBeZero);
         var item = ratingService.getAverageRatingOfMedia(mediaId);
         if (item == null) return sendBadRequest(ratingNotFound);
@@ -56,7 +58,7 @@ public class RatingController {
     }
 
     @PostMapping()
-    public ResponseEntity Save(@RequestBody Rating rating) {
+    public ResponseEntity Save(@RequestBody RatingDto rating) {
         if (rating == null || rating.getId() != 0) return sendBadRequest("Cannot save");
         var isSaved = ratingService.upsertRating(rating);
         if (isSaved)
@@ -65,7 +67,7 @@ public class RatingController {
     }
 
     @PutMapping()
-    public ResponseEntity Update(@RequestBody Rating rating) {
+    public ResponseEntity Update(@RequestBody RatingDto rating) {
         if (rating == null || rating.getId() == 0) return sendBadRequest("Cannot Update");
         var isUpdated = ratingService.upsertRating(rating);
         if (isUpdated)
