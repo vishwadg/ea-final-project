@@ -6,6 +6,8 @@ import edu.miu.commentservice.repo.CommentRepo;
 import edu.miu.commentservice.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +15,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class CommentServiceImpl implements CommentService {
    @Autowired
    CommentRepo commentRepo;
 
    @Autowired
     ModelMapper modelMapper;
+
+   private final RabbitTemplate rabbitTemplate;
+   private final Queue hiQueue1;
 
    @Override
    public String justCall() {
@@ -45,7 +51,9 @@ public class CommentServiceImpl implements CommentService {
 
    @Override
    public CommentDto save(CommentDto body) {
-       return modelMapper.map(commentRepo.save(modelMapper.map(body, Comment.class)), CommentDto.class);
+       Comment save = commentRepo.save(modelMapper.map(body, Comment.class));
+       rabbitTemplate.convertAndSend(this.hiQueue1.getName(), save.toString() + System.currentTimeMillis());
+       return modelMapper.map(save, CommentDto.class);
    }
 
    @Override
