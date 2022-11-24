@@ -1,5 +1,6 @@
 package edu.miu.movieservice.services.impl;
 
+import com.netflix.discovery.converters.Auto;
 import edu.miu.movieservice.entities.DTOs.AvgRatingDto;
 import edu.miu.movieservice.entities.DTOs.CommentDTO;
 import edu.miu.movieservice.entities.DTOs.MediaDTO;
@@ -14,13 +15,17 @@ import edu.miu.movieservice.services.RatingFeignClient;
 import edu.miu.movieservice.services.specification.MediaSpecification;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -38,6 +43,9 @@ public class MediaServiceImpl implements MediaService {
 
     @Autowired
     RatingFeignClient ratingFeignClient;
+
+    @Autowired
+    CircuitBreakerFactory circuitBreakerFactory;
 
     @Override
     public MediaDTO create(MediaDTO mediaDTO) {
@@ -123,6 +131,7 @@ public class MediaServiceImpl implements MediaService {
 
     @Override
     public MediaDTO getById(Long id) {
+        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
         Optional<Media> mediaOptional = mediaRepository.findById(id);
         Media media = mediaOptional.orElseThrow();
         if (media == null) {
@@ -130,9 +139,9 @@ public class MediaServiceImpl implements MediaService {
         }
         MediaDTO mediaDTO = modelMapper.map(media, MediaDTO.class);
 
-        List<CommentDTO> commentDTOList = commentFeignClient.getCommentsByMediaId(id);
-        List<RatingDTO> ratingDTOList = ratingFeignClient.getRatingsByMediaId(id);
-        ResponseEntity<AvgRatingDto> avgRating = ratingFeignClient.getAverageRatingOfMedia(id);
+        List<CommentDTO> commentDTOList = circuitBreaker.run(() -> commentFeignClient.getCommentsByMediaId(id), throwable -> getDefaultCommentList());
+        List<RatingDTO> ratingDTOList = circuitBreaker.run(() -> ratingFeignClient.getRatingsByMediaId(id), throwable -> getDefaultRatingList());
+        ResponseEntity<AvgRatingDto> avgRating = circuitBreaker.run(() -> ratingFeignClient.getAverageRatingOfMedia(id), throwable -> getDefaultAverageRating(id));
         if (!commentDTOList.isEmpty()) {
             mediaDTO.setCommentList(commentDTOList);
         }
@@ -140,7 +149,7 @@ public class MediaServiceImpl implements MediaService {
         if (!ratingDTOList.isEmpty()) {
             mediaDTO.setRatingList(ratingDTOList);
         }
-//        mediaDTO.setAvgRating(Double.parseDouble(String.format("%.2f", Objects.requireNonNull(avgRating.getBody()).getAverageRating())));
+        mediaDTO.setAvgRating(Double.parseDouble(String.format("%.2f", Objects.requireNonNull(avgRating.getBody()).getAverageRating())));
         return mediaDTO;
     }
 
@@ -181,5 +190,20 @@ public class MediaServiceImpl implements MediaService {
         Media media = mediaRepository.findById(id).orElseThrow(() -> new RuntimeException("No media found"));
         mediaRepository.delete(media);
         return modelMapper.map(media, MediaDTO.class);
+    }
+
+    private List<CommentDTO> getDefaultCommentList() {
+        return new ArrayList<>();
+    }
+
+    private List<RatingDTO> getDefaultRatingList() {
+        return new ArrayList<>();
+    }
+
+    private ResponseEntity<AvgRatingDto> getDefaultAverageRating(long id) {
+        AvgRatingDto avgRatingDto = new AvgRatingDto();
+        avgRatingDto.setMediaId(id);
+        avgRatingDto.setAverageRating(1.22);
+        return new ResponseEntity<>(avgRatingDto, HttpStatus.OK);
     }
 }
