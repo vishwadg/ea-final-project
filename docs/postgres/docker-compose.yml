@@ -13,8 +13,8 @@ services:
     networks:
       - db-net
     restart: unless-stopped
-  networks:
+networks:
     db-net:
       driver: bridge
-  volumes:
+volumes:
     postgres:
