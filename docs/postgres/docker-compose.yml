@@ -1,0 +1,20 @@
+services:
+  postgres:
+    container_name: postgres-unisocial
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1
+      PGDATA: /data/postgres
+    volumes:
+      - postgres: /data/postgres
+    ports:
+      - "2222:5432"
+    networks:
+      - db-net
+    restart: unless-stopped
+  networks:
+    db-net:
+      driver: bridge
+  volumes:
+    postgres:
