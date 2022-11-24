@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    #    network_mode: host
+    ports:
+      - 9411:9411
