@@ -1,5 +1,6 @@
 package edu.miu.movieservice.services.impl;
 
+import edu.miu.movieservice.entities.DTOs.AvgRatingDto;
 import edu.miu.movieservice.entities.DTOs.CommentDTO;
 import edu.miu.movieservice.entities.DTOs.MediaDTO;
 import edu.miu.movieservice.entities.DTOs.RatingDTO;
@@ -16,10 +17,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -127,11 +130,9 @@ public class MediaServiceImpl implements MediaService {
         }
         MediaDTO mediaDTO = modelMapper.map(media, MediaDTO.class);
 
-        // TODO: Pull comment and rating of the product
-        // TODO: and set comment list, rating list and average rating to MediaDTO by calling comment service and rating service
         List<CommentDTO> commentDTOList = commentFeignClient.getCommentsByMediaId(id);
         List<RatingDTO> ratingDTOList = ratingFeignClient.getRatingsByMediaId(id);
-//        double avgRating = 0.0;
+        ResponseEntity<AvgRatingDto> avgRating = ratingFeignClient.getAverageRatingOfMedia(id);
         if (!commentDTOList.isEmpty()) {
             mediaDTO.setCommentList(commentDTOList);
         }
@@ -139,8 +140,7 @@ public class MediaServiceImpl implements MediaService {
         if (!ratingDTOList.isEmpty()) {
             mediaDTO.setRatingList(ratingDTOList);
         }
-//        mediaDTO.setAvgRating(avgRating);
-
+//        mediaDTO.setAvgRating(Double.parseDouble(String.format("%.2f", Objects.requireNonNull(avgRating.getBody()).getAverageRating())));
         return mediaDTO;
     }
 
@@ -156,6 +156,7 @@ public class MediaServiceImpl implements MediaService {
             movie.setActor(mediaDTO.getActor());
             movie.setDuration(mediaDTO.getDuration());
             movie.setGrossIncome(mediaDTO.getGrossIncome());
+            movie.setAvgRating(mediaDTO.getAvgRating());
 
             Media mediaRepo = mediaRepository.save(movie);
             return modelMapper.map(mediaRepo, MediaDTO.class);
@@ -168,6 +169,7 @@ public class MediaServiceImpl implements MediaService {
             tvSeries.setActor(mediaDTO.getActor());
             tvSeries.setDuration(mediaDTO.getDuration());
             tvSeries.setSeasons(mediaDTO.getSeasons());
+            tvSeries.setAvgRating(mediaDTO.getAvgRating());
 
             Media mediaRepo = mediaRepository.save(tvSeries);
             return modelMapper.map(mediaRepo, MediaDTO.class);

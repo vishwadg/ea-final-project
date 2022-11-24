@@ -1,10 +1,8 @@
-package edu.miu.ratingservice.entity.dto;
+package edu.miu.movieservice.entities.DTOs;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.Entity;
 
 @Data
 @AllArgsConstructor
