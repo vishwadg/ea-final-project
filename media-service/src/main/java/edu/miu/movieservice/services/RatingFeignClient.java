@@ -1,6 +1,6 @@
 package edu.miu.movieservice.services;
 
-import edu.miu.movieservice.entities.DTOs.AvgRatingDTO;
+import edu.miu.movieservice.entities.DTOs.AvgRatingDto;
 import edu.miu.movieservice.entities.DTOs.RatingDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -15,5 +15,5 @@ public interface RatingFeignClient {
     List<RatingDTO> getRatingsByMediaId(@PathVariable Long id);
 
     @GetMapping("/ratings/average-rating/{mediaId}/media")
-    ResponseEntity<AvgRatingDTO> getAverageRatingOfMedia(@PathVariable Long mediaId);
+    ResponseEntity<AvgRatingDto> getAverageRatingOfMedia(@PathVariable Long mediaId);
 }

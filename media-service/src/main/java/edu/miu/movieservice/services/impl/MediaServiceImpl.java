@@ -1,6 +1,6 @@
 package edu.miu.movieservice.services.impl;
 
-import edu.miu.movieservice.entities.DTOs.AvgRatingDTO;
+import edu.miu.movieservice.entities.DTOs.AvgRatingDto;
 import edu.miu.movieservice.entities.DTOs.CommentDTO;
 import edu.miu.movieservice.entities.DTOs.MediaDTO;
 import edu.miu.movieservice.entities.DTOs.RatingDTO;
@@ -130,11 +130,9 @@ public class MediaServiceImpl implements MediaService {
         }
         MediaDTO mediaDTO = modelMapper.map(media, MediaDTO.class);
 
-        // TODO: Pull comment and rating of the product
-        // TODO: and set comment list, rating list and average rating to MediaDTO by calling comment service and rating service
         List<CommentDTO> commentDTOList = commentFeignClient.getCommentsByMediaId(id);
         List<RatingDTO> ratingDTOList = ratingFeignClient.getRatingsByMediaId(id);
-        ResponseEntity<AvgRatingDTO> avgRating = ratingFeignClient.getAverageRatingOfMedia(id);
+        ResponseEntity<AvgRatingDto> avgRating = ratingFeignClient.getAverageRatingOfMedia(id);
         if (!commentDTOList.isEmpty()) {
             mediaDTO.setCommentList(commentDTOList);
         }
@@ -142,8 +140,7 @@ public class MediaServiceImpl implements MediaService {
         if (!ratingDTOList.isEmpty()) {
             mediaDTO.setRatingList(ratingDTOList);
         }
-        mediaDTO.setAvgRating(Objects.requireNonNull(avgRating.getBody()).getAverageRating());
-
+//        mediaDTO.setAvgRating(Double.parseDouble(String.format("%.2f", Objects.requireNonNull(avgRating.getBody()).getAverageRating())));
         return mediaDTO;
     }
 
@@ -159,7 +156,7 @@ public class MediaServiceImpl implements MediaService {
             movie.setActor(mediaDTO.getActor());
             movie.setDuration(mediaDTO.getDuration());
             movie.setGrossIncome(mediaDTO.getGrossIncome());
-            movie.setAvgRating(media.getAvgRating());
+            movie.setAvgRating(mediaDTO.getAvgRating());
 
             Media mediaRepo = mediaRepository.save(movie);
             return modelMapper.map(mediaRepo, MediaDTO.class);
