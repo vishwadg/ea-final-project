@@ -1,10 +1,6 @@
 package edu.miu.movieservice.services.impl;
 
-import com.netflix.discovery.converters.Auto;
-import edu.miu.movieservice.entities.DTOs.AvgRatingDto;
-import edu.miu.movieservice.entities.DTOs.CommentDTO;
-import edu.miu.movieservice.entities.DTOs.MediaDTO;
-import edu.miu.movieservice.entities.DTOs.RatingDTO;
+import edu.miu.movieservice.entities.DTOs.*;
 import edu.miu.movieservice.entities.Media;
 import edu.miu.movieservice.entities.Movie;
 import edu.miu.movieservice.entities.TvSeries;
@@ -15,6 +11,7 @@ import edu.miu.movieservice.services.RatingFeignClient;
 import edu.miu.movieservice.services.specification.MediaSpecification;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.data.domain.Page;
@@ -22,6 +19,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
 
@@ -32,6 +30,9 @@ import java.util.Optional;
 
 @Service
 public class MediaServiceImpl implements MediaService {
+
+    @Value("${spring.kafka.custom.media-topic}")
+    private String movieTopic;
     @Autowired
     MediaRepository mediaRepository;
 
@@ -46,6 +47,9 @@ public class MediaServiceImpl implements MediaService {
 
     @Autowired
     CircuitBreakerFactory circuitBreakerFactory;
+
+    @Autowired
+    KafkaTemplate<String, KafkaMediaDto> kafkaTemplate;
 
     @Override
     public MediaDTO create(MediaDTO mediaDTO) {
@@ -189,6 +193,9 @@ public class MediaServiceImpl implements MediaService {
     public MediaDTO delete(Long id) {
         Media media = mediaRepository.findById(id).orElseThrow(() -> new RuntimeException("No media found"));
         mediaRepository.delete(media);
+        KafkaMediaDto kafkaMediaDTO = new KafkaMediaDto();
+        kafkaMediaDTO.setId(media.getId());
+        kafkaTemplate.send(movieTopic, kafkaMediaDTO);
         return modelMapper.map(media, MediaDTO.class);
     }
 
