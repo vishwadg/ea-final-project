@@ -1,6 +1,7 @@
-package edu.miu.movieservice.config;
+package edu.miu.ratingservice.config;
 
-import edu.miu.movieservice.entities.DTOs.AvgRatingDto;
+
+import edu.miu.ratingservice.entity.dto.KafkaMediaDto;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,8 +12,7 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
-//import org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper;
-import org.springframework.kafka.support.converter.DefaultJackson2JavaTypeMapper;
+import org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import java.util.HashMap;
@@ -28,8 +28,8 @@ public class KafkaConsumerConfig {
     private String groupId;
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, AvgRatingDto> kafkaListenerContainerFactory(ConsumerFactory<String, AvgRatingDto> consumerFactory) {
-        ConcurrentKafkaListenerContainerFactory<String, AvgRatingDto> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<String, KafkaMediaDto> kafkaListenerContainerFactory(ConsumerFactory<String, KafkaMediaDto> consumerFactory) {
+        ConcurrentKafkaListenerContainerFactory<String, KafkaMediaDto> factory = new ConcurrentKafkaListenerContainerFactory<>();
 
         factory.setConsumerFactory(consumerFactory);
 
@@ -37,17 +37,17 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    ConsumerFactory<String, AvgRatingDto> consumerFactory(KafkaProperties kafkaProperties) {
+    ConsumerFactory<String, KafkaMediaDto> consumerFactory(KafkaProperties kafkaProperties) {
         DefaultJackson2JavaTypeMapper typeMapper = new DefaultJackson2JavaTypeMapper();
 
         Map<String, Class<?>> classMap = new HashMap<>();
         // any name key you want
-        classMap.put("miu.edu.AvgRatingDto", AvgRatingDto.class);
+        classMap.put("miu.edu.KafkaMediaDto", Long.class);
         typeMapper.setIdClassMapping(classMap);
 
         typeMapper.addTrustedPackages("*");
 
-        JsonDeserializer<AvgRatingDto> valueDeserializer = new JsonDeserializer<>(AvgRatingDto.class);
+        JsonDeserializer<KafkaMediaDto> valueDeserializer = new JsonDeserializer<>();
         valueDeserializer.setTypeMapper(typeMapper);
         valueDeserializer.setUseTypeMapperForKey(true);
 
