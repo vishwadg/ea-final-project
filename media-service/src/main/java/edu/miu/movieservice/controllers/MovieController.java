@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
+
 @RestController
 @RequestMapping("/media")
 public class MovieController {
@@ -17,11 +19,13 @@ public class MovieController {
     MediaService mediaService;
 
     @PostMapping
+    @RolesAllowed("manager")
     ResponseEntity<?> create(@RequestBody MediaDTO mediaDTO) {
         return new ResponseEntity<>(mediaService.create(mediaDTO), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
+    @RolesAllowed("manager")
     ResponseEntity<?> update(@PathVariable Long id, @RequestBody MediaDTO mediaDTO) {
         return new ResponseEntity<>(mediaService.update(id, mediaDTO), HttpStatus.OK);
     }
@@ -47,6 +51,7 @@ public class MovieController {
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed("manager")
     ResponseEntity<?> remove(@PathVariable Long id) {
         return new ResponseEntity<>(mediaService.delete(id), HttpStatus.OK);
     }

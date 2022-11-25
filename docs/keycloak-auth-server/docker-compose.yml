@@ -20,8 +20,6 @@ services:
   keycloak:
       container_name: miu_ea_movie_rating_keycloak
       image: 'quay.io/keycloak/keycloak:latest'
-      build:
-        context: services/keycloak
       volumes:
         - ./imports:/tmp/import
       command:
