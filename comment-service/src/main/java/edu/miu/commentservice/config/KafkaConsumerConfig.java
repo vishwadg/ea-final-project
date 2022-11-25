@@ -1,6 +1,6 @@
-package edu.miu.movieservice.config;
+package edu.miu.commentservice.config;
 
-import edu.miu.movieservice.entities.DTOs.AvgRatingDto;
+import edu.miu.commentservice.entity.dto.KafkaMediaDto;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +11,6 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
-//import org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper;
 import org.springframework.kafka.support.converter.DefaultJackson2JavaTypeMapper;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
@@ -27,9 +26,10 @@ public class KafkaConsumerConfig {
     @Value("${spring.kafka.consumer.group-id}")
     private String groupId;
 
+
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, AvgRatingDto> kafkaListenerContainerFactory(ConsumerFactory<String, AvgRatingDto> consumerFactory) {
-        ConcurrentKafkaListenerContainerFactory<String, AvgRatingDto> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<String, KafkaMediaDto> kafkaListenerContainerFactory(ConsumerFactory<String, KafkaMediaDto> consumerFactory) {
+        ConcurrentKafkaListenerContainerFactory<String, KafkaMediaDto> factory = new ConcurrentKafkaListenerContainerFactory<>();
 
         factory.setConsumerFactory(consumerFactory);
 
@@ -37,17 +37,17 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    ConsumerFactory<String, AvgRatingDto> consumerFactory(KafkaProperties kafkaProperties) {
+    ConsumerFactory<String, KafkaMediaDto> consumerFactory(KafkaProperties kafkaProperties) {
         DefaultJackson2JavaTypeMapper typeMapper = new DefaultJackson2JavaTypeMapper();
 
         Map<String, Class<?>> classMap = new HashMap<>();
         // any name key you want
-        classMap.put("miu.edu.AvgRatingDto", AvgRatingDto.class);
+        classMap.put("miu.edu.KafkaMediaDto", KafkaMediaDto.class);
         typeMapper.setIdClassMapping(classMap);
 
         typeMapper.addTrustedPackages("*");
 
-        JsonDeserializer<AvgRatingDto> valueDeserializer = new JsonDeserializer<>(AvgRatingDto.class);
+        JsonDeserializer<KafkaMediaDto> valueDeserializer = new JsonDeserializer<>(KafkaMediaDto.class);
         valueDeserializer.setTypeMapper(typeMapper);
         valueDeserializer.setUseTypeMapperForKey(true);
 

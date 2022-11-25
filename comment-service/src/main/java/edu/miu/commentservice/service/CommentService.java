@@ -27,4 +27,5 @@ public interface CommentService {
    //delete
    CommentDto delete(Long id);
 
+   String deleteByMediaId(Long id);
 }
