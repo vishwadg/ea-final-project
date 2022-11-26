@@ -15,7 +15,7 @@ public class Comment {
     private Long id;
     private String comment;
     private Long mediaId;
-    private Long userId;
+    private String userId;
 
     @Column(insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Basic(optional = false)

@@ -53,7 +53,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public CommentDto save(CommentDto body) {
         Comment save = commentRepo.save(modelMapper.map(body, Comment.class));
-//        rabbitTemplate.convertAndSend(this.hiQueue1.getName(), save.toString() + System.currentTimeMillis());
+        rabbitTemplate.convertAndSend(this.hiQueue1.getName(), "Came from: Comment Service" + System.currentTimeMillis());
         return modelMapper.map(save, CommentDto.class);
     }
 
