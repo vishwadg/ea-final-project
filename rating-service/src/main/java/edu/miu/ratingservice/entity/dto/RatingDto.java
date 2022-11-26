@@ -12,5 +12,5 @@ public class RatingDto {
     private double rating;
     private Date createdAt;
     private long mediaId;
-    private long userId;
+    private String userId;
 }

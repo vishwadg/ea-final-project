@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -26,8 +27,8 @@ public class RatingController {
     }
 
     @GetMapping("/filter-by-user/{userId}")
-    public ResponseEntity<List<RatingDto>> getAllRatingsByUser(@PathVariable Long userId) {
-        if (userId == 0) return sendBadRequest("UserId" + cannotBeZero);
+    public ResponseEntity<List<RatingDto>> getAllRatingsByUser(@PathVariable String userId) {
+        if (userId == null) return sendBadRequest("UserId" + cannotBeZero);
         var item = ratingService.getAllRatingsByUser(userId);
         if (item == null) return sendBadRequest(ratingNotFound);
         else return ResponseEntity.ok(item);
@@ -58,6 +59,7 @@ public class RatingController {
     }
 
     @PostMapping()
+    @RolesAllowed({"member"})
     public ResponseEntity Save(@RequestBody RatingDto rating) {
         if (rating == null || rating.getId() != 0) return sendBadRequest("Cannot save");
         var isSaved = ratingService.upsertRating(rating);
@@ -67,6 +69,7 @@ public class RatingController {
     }
 
     @PutMapping()
+    @RolesAllowed({"member"})
     public ResponseEntity Update(@RequestBody RatingDto rating) {
         if (rating == null || rating.getId() == 0) return sendBadRequest("Cannot Update");
         var isUpdated = ratingService.upsertRating(rating);
@@ -76,6 +79,7 @@ public class RatingController {
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed({"member"})
     public ResponseEntity delete(@PathVariable Long id) {
         if (id == 0) sendBadRequest("Rating Id" + cannotBeZero);
         var isDeleted = ratingService.deleteRating(id);
@@ -85,8 +89,8 @@ public class RatingController {
     }
 
     @DeleteMapping("/{userId}/user")
-    public ResponseEntity deleteRatingByUser(@PathVariable Long userId) {
-        if (userId == 0) sendBadRequest("User Id" + cannotBeZero);
+    public ResponseEntity deleteRatingByUser(@PathVariable String userId) {
+        if (userId == null) sendBadRequest("User Id" + cannotBeZero);
         var isDeleted = ratingService.deleteRatingByUser(userId);
         if (isDeleted)
             return ResponseEntity.ok("SuccessFully Deleted");
