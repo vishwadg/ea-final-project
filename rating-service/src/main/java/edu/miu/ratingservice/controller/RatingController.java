@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -58,6 +59,7 @@ public class RatingController {
     }
 
     @PostMapping()
+    @RolesAllowed({"member"})
     public ResponseEntity Save(@RequestBody RatingDto rating) {
         if (rating == null || rating.getId() != 0) return sendBadRequest("Cannot save");
         var isSaved = ratingService.upsertRating(rating);
@@ -67,6 +69,7 @@ public class RatingController {
     }
 
     @PutMapping()
+    @RolesAllowed({"member"})
     public ResponseEntity Update(@RequestBody RatingDto rating) {
         if (rating == null || rating.getId() == 0) return sendBadRequest("Cannot Update");
         var isUpdated = ratingService.upsertRating(rating);
@@ -76,6 +79,7 @@ public class RatingController {
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed({"member"})
     public ResponseEntity delete(@PathVariable Long id) {
         if (id == 0) sendBadRequest("Rating Id" + cannotBeZero);
         var isDeleted = ratingService.deleteRating(id);
