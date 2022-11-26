@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configuration-server
+data:
+  app_profile: prod
+  postgres_url: postgres-service
+  postgres_port: "3306"
+  postgres_database_name_user: product_service
+  postgres_database_name_media: media_service
+  postgres_database_name_rating: rating_service
+  postgres_database_name_comment: comment_service
+  JWT_PREFIX: Bearer
