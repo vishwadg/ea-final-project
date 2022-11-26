@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-module
+  labels:
+    app: user-module
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-module
+  template:
+    metadata:
+      labels:
+        app: user-module
+    spec:
+      containers:
+        - name: user-module
+          image: vishwaghimire/user-service:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_PROFILE
+              valueFrom:
+                configMapKeyRef:
+                  name: ea-configmap
+                  key: app_profile
+            - name: POSTGRES_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: ea-configmap
+                  key: postgres_url
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: ea-configmap
+                  key: postgres_port
+            - name: POSTGRES_DATABASE_NAME_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: ea-configmap
+                  key: postgres_database_name_user
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: ea-postgres-secret
+                  key: postgres-root-username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ea-postgres-secret
+                  key: postgres-root-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+spec:
+  selector:
+    app: user-module
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

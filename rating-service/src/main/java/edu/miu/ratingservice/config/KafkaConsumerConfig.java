@@ -2,7 +2,6 @@ package edu.miu.ratingservice.config;
 
 
 import edu.miu.ratingservice.entity.dto.KafkaMediaDto;
-import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
@@ -12,7 +11,7 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
-import org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper;
+import org.springframework.kafka.support.converter.DefaultJackson2JavaTypeMapper;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import java.util.HashMap;
@@ -42,12 +41,12 @@ public class KafkaConsumerConfig {
 
         Map<String, Class<?>> classMap = new HashMap<>();
         // any name key you want
-        classMap.put("miu.edu.KafkaMediaDto", Long.class);
+        classMap.put("miu.edu.KafkaMediaDto", KafkaMediaDto.class);
         typeMapper.setIdClassMapping(classMap);
 
         typeMapper.addTrustedPackages("*");
 
-        JsonDeserializer<KafkaMediaDto> valueDeserializer = new JsonDeserializer<>();
+        JsonDeserializer<KafkaMediaDto> valueDeserializer = new JsonDeserializer<>(KafkaMediaDto.class);
         valueDeserializer.setTypeMapper(typeMapper);
         valueDeserializer.setUseTypeMapperForKey(true);
 
