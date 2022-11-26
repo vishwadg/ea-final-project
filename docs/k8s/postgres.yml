@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresdb-deployment
+  labels:
+    app: postgresdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgresdb
+  template:
+    metadata:
+      labels:
+        app: postgresdb
+    spec:
+      containers:
+        - name: postgresdb
+          image: postgres
+          ports:
+            - containerPort: 3306
+          env:
+            - name: POSTGRES_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresdb-secret
+                  key: postgres-root-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresdb-service
+spec:
+  selector:
+    app: postgresdb
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+
+

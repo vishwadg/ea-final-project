@@ -1,0 +1,181 @@
+version: "3"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "2222:5432"
+    restart: unless-stopped
+  #    networks:
+  #      - db-net
+  #    depends_on:
+  #      - elasticsearch
+
+  service-discoveries:
+    container_name: service-discoveries
+    image: vishwaghimire/service-discoveries
+    ports:
+      - 8761:8761
+    restart: always
+    build:
+      context: ./service-discoveries
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+  #    networks:
+  #      - db-net
+
+  api-gateway:
+    container_name: api-gateway
+    image: vishwaghimire/api-gateway
+    environment:
+      EUREKA_URI: service-discoveries
+    ports:
+      - 8080:8080
+    restart: always
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    depends_on:
+      - service-discoveries
+#    networks:
+#      - db-net
+
+  configuration-server:
+    container_name: configuration-server
+    image: vishwaghimire/configuration-server
+    environment:
+      EUREKA_URI: service-discoveries
+    ports:
+      - 8082:8082
+    restart: always
+    build:
+      context: ./configuration-server
+      dockerfile: Dockerfile
+    depends_on:
+      - service-discoveries
+  #    networks:
+  #      - db-net
+
+  comment-service:
+    container_name: comment-service
+    image: vishwaghimire/comment-service
+    environment:
+      EUREKA_URI: service-discoveries
+      CONFIG_URL: configuration-server
+      POSTGRES_URL: postgres
+      API_GATEWAY_URL: api-gateway
+    ports:
+      - 8088:8088
+    restart: always
+    build:
+      context: ./comment-service
+      dockerfile: Dockerfile
+    depends_on:
+      - service-discoveries
+#    networks:
+#      - db-net
+#
+
+  media-service:
+    container_name: media-service
+    image: vishwaghimire/media-service
+    ports:
+      - 8085:8085
+    restart: always
+    build:
+      context: ./media-service
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+
+  rating-service:
+    container_name: rating-service
+    image: vishwaghimire/rating-service
+    ports:
+      - 8087:8087
+    restart: always
+    build:
+      context: ./rating-service
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+
+
+  user-service:
+    container_name: user-service
+    image: vishwaghimire/user-service
+    ports:
+      - 8080:8080
+    restart: always
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+
+
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.3.3
+    container_name: elasticsearch_springboot
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.type=single-node"
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.3.3
+    container_name: kibana_springboot
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.3.3
+    container_name: logstash_springboot
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+    ports:
+      - "5044:5044"
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+
+networks:
+  elastic:
+    driver: bridge
+  db-net:
+    driver: bridge
+
+volumes:
+  elasticsearch_data:
+    driver: local
+  postgres:
