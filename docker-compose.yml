@@ -121,7 +121,17 @@ services:
     depends_on:
       - postgres
 
-
+  favList-service:
+    container_name: favList-service
+    image: vishwaghimire/fav-list-service
+    ports:
+      - 8080:8080
+    restart: always
+    build:
+      context: ./favList-service
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.3.3
