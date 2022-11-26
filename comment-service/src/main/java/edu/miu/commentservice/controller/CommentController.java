@@ -5,6 +5,7 @@ import edu.miu.commentservice.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Path;
 import java.util.List;
 
@@ -37,17 +38,20 @@ public class CommentController {
    }
 
    @PostMapping()
+   @RolesAllowed({"member"})
    public CommentDto save(@RequestBody CommentDto body){
        return commentService.save(body);
    }
 
    @PutMapping("/{id}")
+   @RolesAllowed({"member"})
    public CommentDto update(@PathVariable Long id,   @RequestBody CommentDto body){
        return commentService.update(id, body);
    }
 
 
    @DeleteMapping("/{id}")
+   @RolesAllowed({"member"})
    public CommentDto delete(@PathVariable Long id){
        return commentService.delete(id);
    }
