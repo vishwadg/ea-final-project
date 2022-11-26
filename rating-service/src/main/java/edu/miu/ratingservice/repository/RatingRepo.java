@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface RatingRepo extends JpaRepository<Rating,Long> {
-    public List<Rating> getRatingByUserId(Long userId);
+    public List<Rating> getRatingByUserId(String userId);
     public List<Rating> getRatingsByMediaId(Long mediaId);
 
     @Query(value = "select AVG(rating) from rating_table r where r.media_id = :mediaId",nativeQuery = true)
@@ -21,7 +21,7 @@ public interface RatingRepo extends JpaRepository<Rating,Long> {
 
     @Transactional
     @Modifying
-    public Integer deleteAllByUserId(long userId);
+    public Integer deleteAllByUserId(String userId);
     @Transactional
     @Modifying
     public Integer deleteAllByMediaId(Long mediaId);

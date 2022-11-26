@@ -23,5 +23,5 @@ public class Rating {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     private long mediaId;
-    private long userId;
+    private String userId;
 }
