@@ -10,11 +10,13 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
 @Log4j2
 @EnableDiscoveryClient
 @SpringBootApplication
+@EnableWebMvc
 public class RatingServiceApplication {
 
     public static void main(String[] args) {

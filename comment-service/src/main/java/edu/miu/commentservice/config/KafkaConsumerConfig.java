@@ -1,7 +1,6 @@
 package edu.miu.commentservice.config;
 
 import edu.miu.commentservice.entity.dto.KafkaMediaDto;
-import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
@@ -42,7 +41,7 @@ public class KafkaConsumerConfig {
 
         Map<String, Class<?>> classMap = new HashMap<>();
         // any name key you want
-        classMap.put("miu.edu.KafkaMediaDto", KafkaMediaDto.class);
+        classMap.put("edu.miu.KafkaMediaDto", KafkaMediaDto.class);
         typeMapper.setIdClassMapping(classMap);
 
         typeMapper.addTrustedPackages("*");

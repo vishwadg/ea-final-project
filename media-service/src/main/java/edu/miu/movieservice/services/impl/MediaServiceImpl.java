@@ -193,8 +193,7 @@ public class MediaServiceImpl implements MediaService {
     public MediaDTO delete(Long id) {
         Media media = mediaRepository.findById(id).orElseThrow(() -> new RuntimeException("No media found"));
         mediaRepository.delete(media);
-        KafkaMediaDto kafkaMediaDTO = new KafkaMediaDto();
-        kafkaMediaDTO.setId(media.getId());
+        KafkaMediaDto kafkaMediaDTO = new KafkaMediaDto(media.getId());
         kafkaTemplate.send(movieTopic, kafkaMediaDTO);
         return modelMapper.map(media, MediaDTO.class);
     }
