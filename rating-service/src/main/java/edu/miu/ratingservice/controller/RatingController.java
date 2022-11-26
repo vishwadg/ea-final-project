@@ -26,8 +26,8 @@ public class RatingController {
     }
 
     @GetMapping("/filter-by-user/{userId}")
-    public ResponseEntity<List<RatingDto>> getAllRatingsByUser(@PathVariable Long userId) {
-        if (userId == 0) return sendBadRequest("UserId" + cannotBeZero);
+    public ResponseEntity<List<RatingDto>> getAllRatingsByUser(@PathVariable String userId) {
+        if (userId == null) return sendBadRequest("UserId" + cannotBeZero);
         var item = ratingService.getAllRatingsByUser(userId);
         if (item == null) return sendBadRequest(ratingNotFound);
         else return ResponseEntity.ok(item);
@@ -85,8 +85,8 @@ public class RatingController {
     }
 
     @DeleteMapping("/{userId}/user")
-    public ResponseEntity deleteRatingByUser(@PathVariable Long userId) {
-        if (userId == 0) sendBadRequest("User Id" + cannotBeZero);
+    public ResponseEntity deleteRatingByUser(@PathVariable String userId) {
+        if (userId == null) sendBadRequest("User Id" + cannotBeZero);
         var isDeleted = ratingService.deleteRatingByUser(userId);
         if (isDeleted)
             return ResponseEntity.ok("SuccessFully Deleted");

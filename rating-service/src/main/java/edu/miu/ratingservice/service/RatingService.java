@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface RatingService {
     public List<RatingDto> getAllRatings();
-    public List<RatingDto> getAllRatingsByUser(Long userId);
+    public List<RatingDto> getAllRatingsByUser(String userId);
     public List<RatingDto> getAllRatingsByMedia(Long mediaId);
     public RatingDto getRatingById(Long ratingId);
     public AvgRatingDto getAverageRatingOfMedia(Long mediaId);
@@ -17,7 +17,7 @@ public interface RatingService {
     public boolean upsertRating(RatingDto rating);
 
     public boolean deleteRating(Long ratingId);
-    public boolean deleteRatingByUser(Long userId);
+    public boolean deleteRatingByUser(String userId);
     public boolean deleteRatingByMedia(Long mediaId);
 
 
