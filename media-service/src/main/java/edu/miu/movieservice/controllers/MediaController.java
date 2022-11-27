@@ -13,7 +13,7 @@ import javax.annotation.security.RolesAllowed;
 
 @RestController
 @RequestMapping("/media")
-public class MovieController {
+public class MediaController {
 
     @Autowired
     MediaService mediaService;
@@ -54,5 +54,10 @@ public class MovieController {
     @RolesAllowed({"manager"})
     ResponseEntity<?> remove(@PathVariable Long id) {
         return new ResponseEntity<>(mediaService.delete(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/by-user/{userId}")
+    ResponseEntity<?> getAllMediaByUserId(@PathVariable String userId) {
+        return new ResponseEntity<>(mediaService.getAllByUserId(userId), HttpStatus.OK);
     }
 }
