@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
 import java.util.List;
+import java.security.Principal;
 
 @RestController
 @RequiredArgsConstructor
@@ -60,8 +61,9 @@ public class RatingController {
 
     @PostMapping()
     @RolesAllowed({"member"})
-    public ResponseEntity Save(@RequestBody RatingDto rating) {
+    public ResponseEntity Save(@RequestBody RatingDto rating, Principal principal) {
         if (rating == null || rating.getId() != 0) return sendBadRequest("Cannot save");
+        rating.setUserId(principal.getName());
         var isSaved = ratingService.upsertRating(rating);
         if (isSaved)
             return ResponseEntity.ok("SuccessFully Saved");

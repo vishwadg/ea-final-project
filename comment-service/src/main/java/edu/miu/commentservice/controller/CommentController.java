@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Path;
 import java.util.List;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/comments")
@@ -39,7 +40,8 @@ public class CommentController {
 
    @PostMapping()
    @RolesAllowed({"member"})
-   public CommentDto save(@RequestBody CommentDto body){
+   public CommentDto save(@RequestBody CommentDto body, Principal principal){
+       body.setUserId(principal.getName());
        return commentService.save(body);
    }
 

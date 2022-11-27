@@ -10,6 +10,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/media")
@@ -20,7 +21,8 @@ public class MediaController {
 
     @PostMapping
     @RolesAllowed({"manager"})
-    ResponseEntity<?> create(@RequestBody MediaDTO mediaDTO) {
+    ResponseEntity<?> create(@RequestBody MediaDTO mediaDTO, Principal principal) {
+        mediaDTO.setUserId(principal.getName());
         return new ResponseEntity<>(mediaService.create(mediaDTO), HttpStatus.OK);
     }
 
