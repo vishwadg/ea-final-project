@@ -15,7 +15,7 @@ public class MediaDTO {
     private String director;
     private String actor;
     private double duration;
-    private Date postedDate;
+    private Date createdAt;
     private double avgRating;
     private Long grossIncome;
     private int seasons;

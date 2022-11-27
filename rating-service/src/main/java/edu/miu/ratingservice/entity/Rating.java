@@ -19,8 +19,6 @@ public class Rating {
 
     @Column(insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Basic(optional = false)
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     private long mediaId;
     private String userId;
