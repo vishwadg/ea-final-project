@@ -29,4 +29,5 @@ public class Media {
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date postedDate;
+    private String userId;
 }

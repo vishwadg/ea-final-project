@@ -21,4 +21,5 @@ public class MediaDTO {
     private int seasons;
     private List<CommentDTO> commentList;
     private List<RatingDTO> ratingList;
+    private String userId;
 }

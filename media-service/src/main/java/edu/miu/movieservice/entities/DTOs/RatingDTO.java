@@ -10,6 +10,6 @@ public class RatingDTO {
     private Long id;
     private double rating;
     private Date createdAt;
-    private long userId;
+    private String userId;
     private long mediaId;
 }
