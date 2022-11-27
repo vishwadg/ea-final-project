@@ -179,11 +179,30 @@ services:
     depends_on:
       - elasticsearch
 
+  vault-server:
+    image: vault:latest
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_ADDR: "https://localhost:8200"
+      VAULT_DEV_ROOT_TOKEN_ID: "token"
+    cap_add:
+      - IPC_LOCK
+    networks:
+      vault-network:
+        ipv4_address: 172.21.0.10
+        aliases:
+          - vault-server
+
 networks:
   elastic:
     driver: bridge
   db-net:
     driver: bridge
+  vault-network:
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
 
 volumes:
   elasticsearch_data:
