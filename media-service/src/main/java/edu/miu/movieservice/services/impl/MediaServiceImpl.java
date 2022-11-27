@@ -137,7 +137,7 @@ public class MediaServiceImpl implements MediaService {
     public MediaDTO getById(Long id) {
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
         Optional<Media> mediaOptional = mediaRepository.findById(id);
-        Media media = mediaOptional.orElseThrow();
+        Media media = mediaOptional.orElseThrow(()-> new RuntimeException("No media found"));
         if (media == null) {
             throw new RuntimeException("Sorry, media not found");
         }
@@ -153,7 +153,10 @@ public class MediaServiceImpl implements MediaService {
         if (!ratingDTOList.isEmpty()) {
             mediaDTO.setRatingList(ratingDTOList);
         }
-        mediaDTO.setAvgRating(Double.parseDouble(String.format("%.2f", Objects.requireNonNull(avgRating.getBody()).getAverageRating())));
+        if (avgRating.getBody().getAverageRating() != null) {
+            System.out.println("avgRating.getBody()).getAverageRating() ==> " + avgRating.getBody().getAverageRating());
+            mediaDTO.setAvgRating(Double.parseDouble(String.format("%.2f", Objects.requireNonNull(avgRating.getBody()).getAverageRating())));
+        }
         return mediaDTO;
     }
 
@@ -196,6 +199,21 @@ public class MediaServiceImpl implements MediaService {
         KafkaMediaDto kafkaMediaDTO = new KafkaMediaDto(media.getId());
         kafkaTemplate.send(movieTopic, kafkaMediaDTO);
         return modelMapper.map(media, MediaDTO.class);
+    }
+
+    @Override
+    public List<MediaDTO> getAllByUserId(String userId) {
+        List<Media> mediaList = mediaRepository.findAllByUserId(userId);
+        if (mediaList.isEmpty()) {
+            throw new RuntimeException("Sorry, media not found");
+        }
+        List<MediaDTO> mediaDTOList = mediaList.stream().map(
+                media -> {
+                    MediaDTO mediaDTO = modelMapper.map(media, MediaDTO.class);
+                    return mediaDTO;
+                }
+        ).toList();
+        return mediaDTOList;
     }
 
     private List<CommentDTO> getDefaultCommentList() {

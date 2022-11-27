@@ -11,4 +11,5 @@ import java.util.List;
 public interface MediaRepository extends JpaRepository<Media, Long>, JpaSpecificationExecutor<Media> {
     List<Media> findAllByMediaType(String mediaType);
 
+    List<Media> findAllByUserId(String userId);
 }
