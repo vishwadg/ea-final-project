@@ -61,3 +61,23 @@ public class SpringFoxConfig {
 Ref Docs:
 
     https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
+
+## Docker Compose Process
+`docker should be installed in the testing system.`
+
+#### Go to the base folder of the project, and run the microservices from the following codes
+`docker compose up`
+
+## Kubernetes Process
+
+#### Pre-requirement
+`minikube and docker should be installed in the testing system.`
+
+#### Start the minikube server with the following codes in the terminal
+`minikube start`
+
+#### Run The microservices from the following codes
+`kubectl create -f docs/k8s`
+
+#### For tunneling the APIs run the following code
+`minikube services --all`
