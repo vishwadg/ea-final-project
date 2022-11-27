@@ -11,5 +11,5 @@ public class CommentDTO {
     private String comment;
     private Long mediaId;
     private Date createdAt;
-    private Long userId;
+    private String userId;
 }
