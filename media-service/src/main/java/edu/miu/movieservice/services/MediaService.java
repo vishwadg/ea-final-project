@@ -1,6 +1,7 @@
 package edu.miu.movieservice.services;
 
 import edu.miu.movieservice.entities.DTOs.MediaDTO;
+import edu.miu.movieservice.entities.Media;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
@@ -23,4 +24,6 @@ public interface MediaService {
     MediaDTO update(Long id, MediaDTO mediaDTO);
 
     MediaDTO delete(Long id);
+
+    List<MediaDTO> getAllByUserId(String userId);
 }

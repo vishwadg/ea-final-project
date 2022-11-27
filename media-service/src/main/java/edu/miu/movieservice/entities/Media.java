@@ -26,7 +26,6 @@ public class Media {
 
     @Column(insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Basic(optional = false)
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date postedDate;
+    private Date createdAt;
+    private String userId;
 }

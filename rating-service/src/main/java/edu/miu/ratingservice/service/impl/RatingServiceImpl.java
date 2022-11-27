@@ -35,7 +35,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public List<RatingDto> getAllRatingsByUser(Long userId) {
+    public List<RatingDto> getAllRatingsByUser(String userId) {
         var item = ratingRepo.getRatingByUserId(userId);
         return item.stream().map(rating -> modelMapper.map(rating, RatingDto.class)).toList();
     }
@@ -86,7 +86,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public boolean deleteRatingByUser(Long userId) {
+    public boolean deleteRatingByUser(String userId) {
         try {
             var item = ratingRepo.deleteAllByUserId(userId);
             return true;

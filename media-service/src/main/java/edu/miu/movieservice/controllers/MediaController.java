@@ -10,17 +10,19 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/media")
-public class MovieController {
+public class MediaController {
 
     @Autowired
     MediaService mediaService;
 
     @PostMapping
     @RolesAllowed({"manager"})
-    ResponseEntity<?> create(@RequestBody MediaDTO mediaDTO) {
+    ResponseEntity<?> create(@RequestBody MediaDTO mediaDTO, Principal principal) {
+        mediaDTO.setUserId(principal.getName());
         return new ResponseEntity<>(mediaService.create(mediaDTO), HttpStatus.OK);
     }
 
@@ -54,5 +56,10 @@ public class MovieController {
     @RolesAllowed({"manager"})
     ResponseEntity<?> remove(@PathVariable Long id) {
         return new ResponseEntity<>(mediaService.delete(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/by-user/{userId}")
+    ResponseEntity<?> getAllMediaByUserId(@PathVariable String userId) {
+        return new ResponseEntity<>(mediaService.getAllByUserId(userId), HttpStatus.OK);
     }
 }
