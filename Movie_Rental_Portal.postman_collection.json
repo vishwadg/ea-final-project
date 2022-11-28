@@ -1,0 +1,1525 @@
+{
+	"info": {
+		"_postman_id": "15541d1f-6668-4140-b701-f1e408345dd7",
+		"name": "Movie Rental Portal (EA)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24627468"
+	},
+	"item": [
+		{
+			"name": "media",
+			"item": [
+				{
+					"name": "Get All Media",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJrV1RaZXJxT2hhU012Sk9jRkM1bkhQWi1Zb0h5cEVUUGFWQmJteDBNN1p3In0.eyJleHAiOjE2Njk1ODk2NzcsImlhdCI6MTY2OTU4OTM3NywianRpIjoiODNiMTU2ZmMtNjhhNC00YWM2LTliOWMtNzA3ZGZiM2QwMjFiIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9lZHUtbWl1LXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjI4ODYyY2RjLWQ2MTMtNGRlNC05MmE1LWQ1YWI1MWUwMWUxZCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImVhLW1vdmllLXJhdGluZy1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiMzBmNGZhNTAtOTI1OC00ZDIwLTg5ODctZTk0MWJlNTQ0MTJjIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm1hbmFnZXIiLCJvZmZsaW5lX2FjY2VzcyIsIm1lbWJlciIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1lZHUtbWl1LXJlYWxtIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjMwZjRmYTUwLTkyNTgtNGQyMC04OTg3LWU5NDFiZTU0NDEyYyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IkRpcHRlc2ggU2hyZXN0aGEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJkaXB0ZXNoLnNocmVzdGhhQG1pdS5lZHUiLCJsb2NhbGUiOiJlbiIsImdpdmVuX25hbWUiOiJEaXB0ZXNoIiwiZmFtaWx5X25hbWUiOiJTaHJlc3RoYSIsImVtYWlsIjoiZGlwdGVzaC5zaHJlc3RoYUBtaXUuZWR1In0.PYO7prtSAYYb1RHaMwIL50eMPC4TN0RDQSr7oeU0KQfoxnnHnIu2FCbkMCXS9ekr-q9pUgDURMeKckvM6xEDjuzfyY3uIsb6seC7_IZdHrzUPGFsHa6NN2bVSyqWuHM7SFLRq7iU48oLBCSSoiasrFfCQGsP4U_dcx7UJFJVcXaE0eLSpqDjs0a9UNpfTXzXJCM7Fl5Lv3tIfWB_VMW3xPjuQaaGfqzeOzXeXNrrxpMqK2bjV3YPExJFMe9XTd0vVZeH5kQdn33PggheLOSdA7yXZhWTc9zVyN-HcNqbe7KKI4d3zD_fk6s38yE_fqPMJANpkAyib3bgrp7l0obGtg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/media-service/media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"media-service",
+								"media"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Media (movie)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJrV1RaZXJxT2hhU012Sk9jRkM1bkhQWi1Zb0h5cEVUUGFWQmJteDBNN1p3In0.eyJleHAiOjE2Njk1ODk2NzcsImlhdCI6MTY2OTU4OTM3NywianRpIjoiODNiMTU2ZmMtNjhhNC00YWM2LTliOWMtNzA3ZGZiM2QwMjFiIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9lZHUtbWl1LXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjI4ODYyY2RjLWQ2MTMtNGRlNC05MmE1LWQ1YWI1MWUwMWUxZCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImVhLW1vdmllLXJhdGluZy1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiMzBmNGZhNTAtOTI1OC00ZDIwLTg5ODctZTk0MWJlNTQ0MTJjIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm1hbmFnZXIiLCJvZmZsaW5lX2FjY2VzcyIsIm1lbWJlciIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1lZHUtbWl1LXJlYWxtIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjMwZjRmYTUwLTkyNTgtNGQyMC04OTg3LWU5NDFiZTU0NDEyYyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IkRpcHRlc2ggU2hyZXN0aGEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJkaXB0ZXNoLnNocmVzdGhhQG1pdS5lZHUiLCJsb2NhbGUiOiJlbiIsImdpdmVuX25hbWUiOiJEaXB0ZXNoIiwiZmFtaWx5X25hbWUiOiJTaHJlc3RoYSIsImVtYWlsIjoiZGlwdGVzaC5zaHJlc3RoYUBtaXUuZWR1In0.PYO7prtSAYYb1RHaMwIL50eMPC4TN0RDQSr7oeU0KQfoxnnHnIu2FCbkMCXS9ekr-q9pUgDURMeKckvM6xEDjuzfyY3uIsb6seC7_IZdHrzUPGFsHa6NN2bVSyqWuHM7SFLRq7iU48oLBCSSoiasrFfCQGsP4U_dcx7UJFJVcXaE0eLSpqDjs0a9UNpfTXzXJCM7Fl5Lv3tIfWB_VMW3xPjuQaaGfqzeOzXeXNrrxpMqK2bjV3YPExJFMe9XTd0vVZeH5kQdn33PggheLOSdA7yXZhWTc9zVyN-HcNqbe7KKI4d3zD_fk6s38yE_fqPMJANpkAyib3bgrp7l0obGtg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Spider Man\",\n    \"releasedYear\": 2012,\n    \"genre\": \"Drama, Humor\",\n    \"director\": \"Sushil Rawal\",\n    \"actor\": \"Ajay Gyawali\",\n    \"duration\": 180,\n    \"mediaType\": \"movie\",\n    \"grossIncome\": 3123123,\n    \"seasons\": null,\n    \"avgRating\": 4.5,\n    \"userId\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/media-service/media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"media-service",
+								"media"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Media (tv series)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"House of Dragon\",\n    \"releasedYear\": 2012,\n    \"genre\": \"Drama, History\",\n    \"director\": \"Rahul Adhikari\",\n    \"actor\": \"Shrawan Niraula\",\n    \"duration\": 670,\n    \"mediaType\": \"tvseries\",\n    \"grossIncome\": null,\n    \"seasons\": 1,\n    \"avgRating\": 4.5,\n    \"userId\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/media-service/media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"media-service",
+								"media"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Media By Media Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/media-service/media/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"media-service",
+								"media",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Media ",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Spider Man\",\n    \"releasedYear\": 2012,\n    \"genre\": \"Drama, Humor\",\n    \"director\": \"Sanjay Gyawali\",\n    \"actor\": \"Rajiv Koju\",\n    \"duration\": 139,\n    \"grossIncome\": 79799723,\n    \"avgRating\": 4.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/media-service/media/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"media-service",
+								"media",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Media by Media Type (movie or tvseries)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/media-service/media/by-type?mediaType=movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"media-service",
+								"media",
+								"by-type"
+							],
+							"query": [
+								{
+									"key": "mediaType",
+									"value": "movie"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete media by media id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/media-service/media/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"media-service",
+								"media",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter media",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/media-service/media/filter?releasedYear=2022&rating=4.5&genre=Drama&director=Sushil&actor=Ajay&duration=180",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"media-service",
+								"media",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "releasedYear",
+									"value": "2022"
+								},
+								{
+									"key": "rating",
+									"value": "4.5"
+								},
+								{
+									"key": "genre",
+									"value": "Drama"
+								},
+								{
+									"key": "director",
+									"value": "Sushil"
+								},
+								{
+									"key": "actor",
+									"value": "Ajay"
+								},
+								{
+									"key": "duration",
+									"value": "180"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Media By User Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/media/by-user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"media",
+								"by-user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rating",
+			"item": [
+				{
+					"name": "get-all-ratings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rating-service/ratings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating-service",
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-ratings-by-media",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rating-service/ratings/filter-by-media/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating-service",
+								"ratings",
+								"filter-by-media",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-rating-by-user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rating-service/ratings/filter-by-user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating-service",
+								"ratings",
+								"filter-by-user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-ratings-by-Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rating-service/ratings/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating-service",
+								"ratings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-average-rating",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rating-service/ratings/average-rating/1/media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating-service",
+								"ratings",
+								"average-rating",
+								"1",
+								"media"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create rating ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rating\": 1.87,\n    \"mediaId\": 1,\n    \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/rating-service/ratings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating-service",
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-rating",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : 1,\n    \"rating\": 1.87,\n    \"mediaId\": 1,\n    \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/rating-service/ratings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating-service",
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Rating By UserId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rating-service/ratings/1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating-service",
+								"ratings",
+								"1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Rating By MediaId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rating-service/ratings/1/media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating-service",
+								"ratings",
+								"1",
+								"media"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Rating By Rating Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rating-service/ratings/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating-service",
+								"ratings",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "Create Comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comment\": \"This is very interesting movie\",\n    \"mediaId\": 1,\n    \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/comment-service/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment-service",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By CommentID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comment-service/comments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment-service",
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":4,\n    \"comment\":\"This is update post comment\",\n    \"mediaId\": 1,\n    \"userId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/comment-service/comments/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment-service",
+								"comments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comment-service/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment-service",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FavList",
+			"item": [
+				{
+					"name": "FavList Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FavList Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new FavList",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 102,\r\n    \"mediaId\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update FavList",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"userId\": 102,\r\n    \"mediaId\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete FavList",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Users - CRUD",
+					"item": [
+						{
+							"name": "Users - Get users list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms/{{realm}}/users",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users - Create User1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVX0hKWHJNMDAwdTl0eGVPRTR5U05DMXRTeXpralF6YUNpY01Ra2RXU1VzIn0.eyJleHAiOjE2Njk1NzkyMDQsImlhdCI6MTY2OTU3OTE0NCwianRpIjoiNGNhODEyZTEtZGU0Ny00YTM0LTg5MmMtZjMwYjgxYTVlNGQ3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiIyNjNjNGExYi1lZjFjLTQ3MjItODBkMS0xNDAzNDVlMWFiNzciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiMDU0YzEwOWMtNTMwZi00ZWE3LWI0OGEtYzc1MmMwNWEwNjZkIiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjA1NGMxMDljLTUzMGYtNGVhNy1iNDhhLWM3NTJjMDVhMDY2ZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.eTU16bXajDIOxsfhv8FGbg6aGWvVXGu-zyfD3v2rRhqygDMaw_XGUUulPQBWQ1ZkEo3r4KftSHhNXKUV8pJ5SJUvwPmgYj50_8FTMCULfWhjxsj6KTGigXRXVXcVa70BS4VkMpmm1hznXn5xEgYrrnbzwXXYeBs40a23wWa5-pTOR7UmuRgt22Trhw4BSEWv7xjjThlM8lol6cfNdQ4szYAx642RDlvh1OZJxmqj2ZSdFpx_pO_4kxZydg_bOM0ucoXWmPzRHw7TVvgttJ_gEbyhNGDtDNhAp1CuirXQ5b41wBNm65zYZrDDP9VNhL8bpcBplqNb5U_mPmf2UCEGqQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"28862cdc-d613-4de4-92a5-d5ab51e01e1d\",\n    \"username\" : \"diptesh.shrestha@miu.edu\",\n    \"enabled\": true,\n    \"email\" : \"diptesh.shrestha@miu.edu\",\n    \"firstName\" : \"Diptesh\",\n    \"lastName\" : \"Shrestha\",\n    \"totp\" : false,\n    \"emailVerified\" : false,\n    \"credentials\" : [\n        {\n            \"type\" : \"password\",\n            \"value\" : \"diptesh123\",\n            \"temporary\" : false\n        }\n    ],\n    \"realmRoles\" : [ \"manager\", \"default-roles-edu-miu-realm\" ],\n    \"clientRoles\" : {\n      \"account\" : [ \"view-profile\", \"manage-account\" ]\n    },\n    \"notBefore\" : 0,\n    \"groups\" : []\n}"
+								},
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms/{{realm}}/users",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User1 - Assign Manager Role",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"id\": \"43af549e-5bef-45b2-83b4-2052f0964790\",\n        \"name\": \"manager\",\n        \"description\": \"Manager will manage the movies and tv-series\",\n        \"composite\": false,\n        \"clientRole\": false,\n        \"containerId\": \"625e0832-102c-4bae-9fbd-3a735ddb515a\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms/{{realm}}/users/{{user1-id}}/role-mappings/realm",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"{{user1-id}}",
+										"role-mappings",
+										"realm"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users - Create User2",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVX0hKWHJNMDAwdTl0eGVPRTR5U05DMXRTeXpralF6YUNpY01Ra2RXU1VzIn0.eyJleHAiOjE2Njk1NzkyMDQsImlhdCI6MTY2OTU3OTE0NCwianRpIjoiNGNhODEyZTEtZGU0Ny00YTM0LTg5MmMtZjMwYjgxYTVlNGQ3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiIyNjNjNGExYi1lZjFjLTQ3MjItODBkMS0xNDAzNDVlMWFiNzciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiMDU0YzEwOWMtNTMwZi00ZWE3LWI0OGEtYzc1MmMwNWEwNjZkIiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjA1NGMxMDljLTUzMGYtNGVhNy1iNDhhLWM3NTJjMDVhMDY2ZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.eTU16bXajDIOxsfhv8FGbg6aGWvVXGu-zyfD3v2rRhqygDMaw_XGUUulPQBWQ1ZkEo3r4KftSHhNXKUV8pJ5SJUvwPmgYj50_8FTMCULfWhjxsj6KTGigXRXVXcVa70BS4VkMpmm1hznXn5xEgYrrnbzwXXYeBs40a23wWa5-pTOR7UmuRgt22Trhw4BSEWv7xjjThlM8lol6cfNdQ4szYAx642RDlvh1OZJxmqj2ZSdFpx_pO_4kxZydg_bOM0ucoXWmPzRHw7TVvgttJ_gEbyhNGDtDNhAp1CuirXQ5b41wBNm65zYZrDDP9VNhL8bpcBplqNb5U_mPmf2UCEGqQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"ab80bd0b-522b-4392-8c8f-352fd4d85cc0\",\n    \"username\" : \"abhay.rawal@miu.edu\",\n    \"enabled\": true,\n    \"email\" : \"abhay.rawal@miu.edu\",\n    \"firstName\" : \"Abhay\",\n    \"lastName\" : \"Rawal\",\n    \"totp\" : false,\n    \"emailVerified\" : false,\n    \"credentials\" : [\n        {\n            \"type\" : \"password\",\n            \"value\" : \"abhay123\",\n            \"temporary\" : false\n        }\n    ],\n    \"realmRoles\" : [ \"member\", \"default-roles-edu-miu-realm\" ],\n    \"clientRoles\" : {\n      \"account\" : [ \"view-profile\", \"manage-account\" ]\n    },\n    \"notBefore\" : 0,\n    \"groups\" : []\n}"
+								},
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms/{{realm}}/users",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User2 - Assign Member Role",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"id\": \"3aa9d9ff-b00b-4bec-965c-dd59739e0a44\",\n        \"name\": \"member\",\n        \"description\": \"Member can create their favorite movies and tv-series and also comment and rate them\",\n        \"composite\": false,\n        \"clientRole\": false,\n        \"containerId\": \"625e0832-102c-4bae-9fbd-3a735ddb515a\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms/{{realm}}/users/{{user2-id}}/role-mappings/realm",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"{{user2-id}}",
+										"role-mappings",
+										"realm"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users - Create User3",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVX0hKWHJNMDAwdTl0eGVPRTR5U05DMXRTeXpralF6YUNpY01Ra2RXU1VzIn0.eyJleHAiOjE2Njk1NzkyMDQsImlhdCI6MTY2OTU3OTE0NCwianRpIjoiNGNhODEyZTEtZGU0Ny00YTM0LTg5MmMtZjMwYjgxYTVlNGQ3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiIyNjNjNGExYi1lZjFjLTQ3MjItODBkMS0xNDAzNDVlMWFiNzciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiMDU0YzEwOWMtNTMwZi00ZWE3LWI0OGEtYzc1MmMwNWEwNjZkIiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjA1NGMxMDljLTUzMGYtNGVhNy1iNDhhLWM3NTJjMDVhMDY2ZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.eTU16bXajDIOxsfhv8FGbg6aGWvVXGu-zyfD3v2rRhqygDMaw_XGUUulPQBWQ1ZkEo3r4KftSHhNXKUV8pJ5SJUvwPmgYj50_8FTMCULfWhjxsj6KTGigXRXVXcVa70BS4VkMpmm1hznXn5xEgYrrnbzwXXYeBs40a23wWa5-pTOR7UmuRgt22Trhw4BSEWv7xjjThlM8lol6cfNdQ4szYAx642RDlvh1OZJxmqj2ZSdFpx_pO_4kxZydg_bOM0ucoXWmPzRHw7TVvgttJ_gEbyhNGDtDNhAp1CuirXQ5b41wBNm65zYZrDDP9VNhL8bpcBplqNb5U_mPmf2UCEGqQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"28862cdc-d613-4de4-92a5-d5ab51e01e1d\",\n    \"username\" : \"rajiv.gaywali@miu.edu\",\n    \"enabled\": true,\n    \"email\" : \"rajiv.gaywali@miu.edu\",\n    \"firstName\" : \"Rajiv\",\n    \"lastName\" : \"Gaywali\",\n    \"totp\" : false,\n    \"emailVerified\" : false,\n    \"credentials\" : [\n        {\n            \"type\" : \"password\",\n            \"value\" : \"rajiv123\",\n            \"temporary\" : false\n        }\n    ],\n    \"realmRoles\" : [ \"manager\", \"default-roles-edu-miu-realm\" ],\n    \"clientRoles\" : {\n      \"account\" : [ \"view-profile\", \"manage-account\" ]\n    },\n    \"notBefore\" : 0,\n    \"groups\" : []\n}"
+								},
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms/{{realm}}/users",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users - Get User by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVX0hKWHJNMDAwdTl0eGVPRTR5U05DMXRTeXpralF6YUNpY01Ra2RXU1VzIn0.eyJleHAiOjE2Njk1NzkyMDQsImlhdCI6MTY2OTU3OTE0NCwianRpIjoiNGNhODEyZTEtZGU0Ny00YTM0LTg5MmMtZjMwYjgxYTVlNGQ3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiIyNjNjNGExYi1lZjFjLTQ3MjItODBkMS0xNDAzNDVlMWFiNzciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiMDU0YzEwOWMtNTMwZi00ZWE3LWI0OGEtYzc1MmMwNWEwNjZkIiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjA1NGMxMDljLTUzMGYtNGVhNy1iNDhhLWM3NTJjMDVhMDY2ZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.eTU16bXajDIOxsfhv8FGbg6aGWvVXGu-zyfD3v2rRhqygDMaw_XGUUulPQBWQ1ZkEo3r4KftSHhNXKUV8pJ5SJUvwPmgYj50_8FTMCULfWhjxsj6KTGigXRXVXcVa70BS4VkMpmm1hznXn5xEgYrrnbzwXXYeBs40a23wWa5-pTOR7UmuRgt22Trhw4BSEWv7xjjThlM8lol6cfNdQ4szYAx642RDlvh1OZJxmqj2ZSdFpx_pO_4kxZydg_bOM0ucoXWmPzRHw7TVvgttJ_gEbyhNGDtDNhAp1CuirXQ5b41wBNm65zYZrDDP9VNhL8bpcBplqNb5U_mPmf2UCEGqQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms/{{realm}}/users",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users - Update User3",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVX0hKWHJNMDAwdTl0eGVPRTR5U05DMXRTeXpralF6YUNpY01Ra2RXU1VzIn0.eyJleHAiOjE2Njk1NzkyMDQsImlhdCI6MTY2OTU3OTE0NCwianRpIjoiNGNhODEyZTEtZGU0Ny00YTM0LTg5MmMtZjMwYjgxYTVlNGQ3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiIyNjNjNGExYi1lZjFjLTQ3MjItODBkMS0xNDAzNDVlMWFiNzciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiMDU0YzEwOWMtNTMwZi00ZWE3LWI0OGEtYzc1MmMwNWEwNjZkIiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjA1NGMxMDljLTUzMGYtNGVhNy1iNDhhLWM3NTJjMDVhMDY2ZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.eTU16bXajDIOxsfhv8FGbg6aGWvVXGu-zyfD3v2rRhqygDMaw_XGUUulPQBWQ1ZkEo3r4KftSHhNXKUV8pJ5SJUvwPmgYj50_8FTMCULfWhjxsj6KTGigXRXVXcVa70BS4VkMpmm1hznXn5xEgYrrnbzwXXYeBs40a23wWa5-pTOR7UmuRgt22Trhw4BSEWv7xjjThlM8lol6cfNdQ4szYAx642RDlvh1OZJxmqj2ZSdFpx_pO_4kxZydg_bOM0ucoXWmPzRHw7TVvgttJ_gEbyhNGDtDNhAp1CuirXQ5b41wBNm65zYZrDDP9VNhL8bpcBplqNb5U_mPmf2UCEGqQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"28862cdc-d613-4de4-92a5-d5ab51e01e1d\",\n    \"username\" : \"rajiv.gywali@miu.edu\",\n    \"enabled\": true,\n    \"email\" : \"rajiv.gywali@miu.edu\",\n    \"firstName\" : \"Rajiv\",\n    \"lastName\" : \"Gywali\",\n    \"totp\" : false,\n    \"emailVerified\" : false,\n    \"credentials\" : [\n        {\n            \"type\" : \"password\",\n            \"value\" : \"rajiv123\",\n            \"temporary\" : false\n        }\n    ],\n    \"realmRoles\" : [ \"manager\", \"default-roles-edu-miu-realm\" ],\n    \"clientRoles\" : {\n      \"account\" : [ \"view-profile\", \"manage-account\" ]\n    },\n    \"notBefore\" : 0,\n    \"groups\" : []\n}"
+								},
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms/{{realm}}/users/44fe7383-6933-4bb9-8c4b-5b49053f8017",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"44fe7383-6933-4bb9-8c4b-5b49053f8017"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users - Delete User3",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVX0hKWHJNMDAwdTl0eGVPRTR5U05DMXRTeXpralF6YUNpY01Ra2RXU1VzIn0.eyJleHAiOjE2Njk1NzkyMDQsImlhdCI6MTY2OTU3OTE0NCwianRpIjoiNGNhODEyZTEtZGU0Ny00YTM0LTg5MmMtZjMwYjgxYTVlNGQ3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiIyNjNjNGExYi1lZjFjLTQ3MjItODBkMS0xNDAzNDVlMWFiNzciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiMDU0YzEwOWMtNTMwZi00ZWE3LWI0OGEtYzc1MmMwNWEwNjZkIiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjA1NGMxMDljLTUzMGYtNGVhNy1iNDhhLWM3NTJjMDVhMDY2ZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.eTU16bXajDIOxsfhv8FGbg6aGWvVXGu-zyfD3v2rRhqygDMaw_XGUUulPQBWQ1ZkEo3r4KftSHhNXKUV8pJ5SJUvwPmgYj50_8FTMCULfWhjxsj6KTGigXRXVXcVa70BS4VkMpmm1hznXn5xEgYrrnbzwXXYeBs40a23wWa5-pTOR7UmuRgt22Trhw4BSEWv7xjjThlM8lol6cfNdQ4szYAx642RDlvh1OZJxmqj2ZSdFpx_pO_4kxZydg_bOM0ucoXWmPzRHw7TVvgttJ_gEbyhNGDtDNhAp1CuirXQ5b41wBNm65zYZrDDP9VNhL8bpcBplqNb5U_mPmf2UCEGqQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms/{{realm}}/users/44fe7383-6933-4bb9-8c4b-5b49053f8017",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"44fe7383-6933-4bb9-8c4b-5b49053f8017"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Others",
+					"item": [
+						{
+							"name": "Get Realm - edu-miu-realm",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{keycloak-server}}/realms/{{realm}}/",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"realms",
+										"{{realm}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Realm - Endpoints",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{keycloak-server}}/realms/{{realm}}/.well-known/openid-configuration",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"realms",
+										"{{realm}}",
+										".well-known",
+										"openid-configuration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Realm - Get details",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVX0hKWHJNMDAwdTl0eGVPRTR5U05DMXRTeXpralF6YUNpY01Ra2RXU1VzIn0.eyJleHAiOjE2Njk1NzkyMDQsImlhdCI6MTY2OTU3OTE0NCwianRpIjoiNGNhODEyZTEtZGU0Ny00YTM0LTg5MmMtZjMwYjgxYTVlNGQ3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiIyNjNjNGExYi1lZjFjLTQ3MjItODBkMS0xNDAzNDVlMWFiNzciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiMDU0YzEwOWMtNTMwZi00ZWE3LWI0OGEtYzc1MmMwNWEwNjZkIiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjA1NGMxMDljLTUzMGYtNGVhNy1iNDhhLWM3NTJjMDVhMDY2ZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.eTU16bXajDIOxsfhv8FGbg6aGWvVXGu-zyfD3v2rRhqygDMaw_XGUUulPQBWQ1ZkEo3r4KftSHhNXKUV8pJ5SJUvwPmgYj50_8FTMCULfWhjxsj6KTGigXRXVXcVa70BS4VkMpmm1hznXn5xEgYrrnbzwXXYeBs40a23wWa5-pTOR7UmuRgt22Trhw4BSEWv7xjjThlM8lol6cfNdQ4szYAx642RDlvh1OZJxmqj2ZSdFpx_pO_4kxZydg_bOM0ucoXWmPzRHw7TVvgttJ_gEbyhNGDtDNhAp1CuirXQ5b41wBNm65zYZrDDP9VNhL8bpcBplqNb5U_mPmf2UCEGqQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Realm - Get Roles",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVX0hKWHJNMDAwdTl0eGVPRTR5U05DMXRTeXpralF6YUNpY01Ra2RXU1VzIn0.eyJleHAiOjE2Njk1NzkyMDQsImlhdCI6MTY2OTU3OTE0NCwianRpIjoiNGNhODEyZTEtZGU0Ny00YTM0LTg5MmMtZjMwYjgxYTVlNGQ3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiIyNjNjNGExYi1lZjFjLTQ3MjItODBkMS0xNDAzNDVlMWFiNzciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiMDU0YzEwOWMtNTMwZi00ZWE3LWI0OGEtYzc1MmMwNWEwNjZkIiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjA1NGMxMDljLTUzMGYtNGVhNy1iNDhhLWM3NTJjMDVhMDY2ZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.eTU16bXajDIOxsfhv8FGbg6aGWvVXGu-zyfD3v2rRhqygDMaw_XGUUulPQBWQ1ZkEo3r4KftSHhNXKUV8pJ5SJUvwPmgYj50_8FTMCULfWhjxsj6KTGigXRXVXcVa70BS4VkMpmm1hznXn5xEgYrrnbzwXXYeBs40a23wWa5-pTOR7UmuRgt22Trhw4BSEWv7xjjThlM8lol6cfNdQ4szYAx642RDlvh1OZJxmqj2ZSdFpx_pO_4kxZydg_bOM0ucoXWmPzRHw7TVvgttJ_gEbyhNGDtDNhAp1CuirXQ5b41wBNm65zYZrDDP9VNhL8bpcBplqNb5U_mPmf2UCEGqQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{keycloak-server}}/admin/realms/{{realm}}/roles",
+									"host": [
+										"{{keycloak-server}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Token - For Users CRUD operation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"console.log(\"jsonData\",jsonData);",
+									"pm.globals.set(\"admin_access_token\",jsonData.access_token);",
+									"pm.globals.set(\"admin_refresh_token\",jsonData.refresh_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "admin-cli",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{keycloak-server}}/realms/master/protocol/openid-connect/token",
+							"host": [
+								"{{keycloak-server}}"
+							],
+							"path": [
+								"realms",
+								"master",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Token - Manager",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "password",
+							"value": "diptesh123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "diptesh.shrestha@miu.edu",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "{{scope}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{client}}",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "{{keycloak-server}}/realms/{{realm}}/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "password_credentials",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{keycloak-server}}/realms/{{realm}}/protocol/openid-connect/token",
+					"host": [
+						"{{keycloak-server}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "{{client}}",
+							"disabled": true
+						},
+						{
+							"key": "state",
+							"value": "{{state}}",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{api-gateway-baseUrl}}/login/oauth2/code/keycloak",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token - Member",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "password",
+							"value": "abhay123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "abhay.rawal@miu.edu",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "{{scope}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{client}}",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "{{keycloak-server}}/realms/{{realm}}/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "password_credentials",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{keycloak-server}}/realms/{{realm}}/protocol/openid-connect/token",
+					"host": [
+						"{{keycloak-server}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
