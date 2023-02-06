@@ -26,6 +26,6 @@ public class Avatar {
     private String top;
     private String topColour;
     private String hatColour;
-    private String StudentId;
+    private String studentId;
 
 }
