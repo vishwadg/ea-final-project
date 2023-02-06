@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: reward-service
+  zipkin:
+    base-url: http://localhost:9411
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: Reward
+
+server:
+  port: 9001
