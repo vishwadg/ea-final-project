@@ -1,6 +1,6 @@
 spring:
   application:
-    name: SchoolService
+    name: SchoolService # your service name
   cloud:
     config:
-      url: http://localhost:8888
+      url: http://localhost:8888 #config-server url
