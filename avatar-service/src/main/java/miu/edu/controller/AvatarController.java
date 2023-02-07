@@ -2,6 +2,7 @@ package miu.edu.controller;
 
 import lombok.RequiredArgsConstructor;
 import miu.edu.domain.Avatar;
+import miu.edu.feign.TestFeign;
 import miu.edu.service.AvatarService;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AvatarController {
     private final AvatarService avatarService;
+
+    private final TestFeign testFeign;
 
 
     @GetMapping
@@ -42,6 +45,12 @@ public class AvatarController {
     @DeleteMapping("/{id}")
     public void deleteAvatar(@PathVariable String id) {
         avatarService.deleteAvatar(id);
+    }
+
+
+    @GetMapping("/call-user")
+    public String CallUser() {
+        return testFeign.hello();
     }
 
 }
